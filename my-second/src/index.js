@@ -1,18 +1,20 @@
 import React from "react"
 import ReactDOM  from "react-dom/client"
-import { App } from "./components"
-import ArsenContext from "./components/helpers/context"
+import App from "./components/App/App"
+import { Provider } from "react-redux"
+import setupStore from "./store/store"
 
-
-const userAge =20
+const store = setupStore()
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
-        <ArsenContext.Provider value = {userAge}>
-                <App/> 
+       <Provider store={store}>
+          <App/> 
+       </Provider>
+              
                 
-        </ArsenContext.Provider>
+        
    
     </React.StrictMode>
 )
